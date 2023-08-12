@@ -1,0 +1,72 @@
+{
+    "Breaking news":[
+        {
+            "title": "Alexander wears modified helmet in road races",
+            "createdDate": "2023-08-07",
+            "category": {"name":"Sports", "colorCode": "#b74093"},
+            "imageSource":
+            "https://cdn.mos.cms.futurecdn.net/NCUcG3jyFCEidqXpfxBcch.jpg",
+            "userName": "CNNIndonesia"
+        },
+        {
+            "title": "Balkans",
+            "createdDate": "2022-10-26",
+            "category": {"name":"Podcasts", "colorCode": "#C55900"},
+            "imageSource":
+            "https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/serb-370x208.jpg?media=1642546813",
+            "userName": "Aisling Garvey"
+        },
+        {
+            "title": "Federal Budget Review July 2023",
+            "createdDate": "2023-08-10",
+            "category": {"name":"Papers", "colorCode": "#000000"},
+            "imageSource":
+            "https://uspolicy.org/wp-content/uploads/2021/08/AdobeStock_433957912-696x464.jpeg",
+            "userName": "CBO"
+        }
+        ,
+        {
+            "title": "Russia's 'August curse' sees war come home",
+            "createdDate": "2023-08-12 12:42",
+            "category": {"name":"Analysis", "colorCode": "#B81313"},
+            "imageSource":
+            "https://media.cnn.com/api/v1/images/stellar/prod/230803155007-dome-kremlin-senate-building.jpg?c=16x9&q=h_720,w_1280,c_fill",
+            "userName": "CNNIndonesia"
+        }
+        ,
+        {
+            "title": "Alexander wears modified helmet in road races",
+            "createdDate": "2023-08-07",
+            "category": {"name":"Sports", "colorCode": "#b74093"},
+            "imageSource":
+            "https://cdn.mos.cms.futurecdn.net/NCUcG3jyFCEidqXpfxBcch.jpg",
+            "userName": "CNNIndonesia"
+        }
+    ],
+    "Recommendation":[
+        {
+            "title": "Alexander wears modified helmet in road races",
+            "createdDate": "2023-08-07",
+            "category": {"name":"Sports", "colorCode": "#b74093"},
+            "imageSource":
+            "https://cdn.mos.cms.futurecdn.net/NCUcG3jyFCEidqXpfxBcch.jpg",
+            "userName": "CNNIndonesia"
+        },
+        {
+            "title": "Alexander wears modified helmet in road races",
+            "createdDate": "2023-08-07",
+            "category": {"name":"Sports", "colorCode": "#b74093"},
+            "imageSource":
+            "https://cdn.mos.cms.futurecdn.net/NCUcG3jyFCEidqXpfxBcch.jpg",
+            "userName": "CNNIndonesia"
+        },
+        {
+            "title": "Alexander wears modified helmet in road races",
+            "createdDate": "2023-08-07",
+            "category": {"name":"Sports", "colorCode": "#b74093"},
+            "imageSource":
+            "https://cdn.mos.cms.futurecdn.net/NCUcG3jyFCEidqXpfxBcch.jpg",
+            "userName": "CNNIndonesia"
+        }
+    ]
+}
