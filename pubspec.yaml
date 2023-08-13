@@ -41,6 +41,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   getwidget: ^3.1.1
   timeago: ^3.5.0
+  dio:
   
 dev_dependencies:
   flutter_test:

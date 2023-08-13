@@ -22,48 +22,51 @@ class BottomNavigationBarContainer extends StatelessWidget {
         ),
       ),
       child: GNav(
-          rippleColor: Colors.white, // tab button ripple color when pressed
-          haptic: true, // haptic feedback
-          tabBorderRadius: 50,
-          tabActiveBorder: Border.all(
-              color: const Color.fromRGBO(11, 134, 231, 1),
-              width: 1), // tab button border
-          tabBorder: null, // tab button border
-          tabShadow: null, // tab button shadow
-          curve: Curves.easeInCubic, // tab animation curves
-          duration: const Duration(milliseconds: 100), // tab animation duration
-          gap: 6, // the tab button gap between icon and text
-          color: Colors.grey[400], // unselected icon color
-          activeColor: Colors.white, // selected icon and text color
-          iconSize: 26, // tab button icon size
-          tabBackgroundColor: const Color.fromRGBO(
-              11, 134, 231, 1), // selected tab background color
-          padding: const EdgeInsets.symmetric(
-              horizontal: 10, vertical: 8), // navigation bar padding
-          tabs: [
-            GButton(
-              icon: LineIcons.home,
-              text: 'Home',
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-              },
-            ),
-            const GButton(
-              icon: LineIcons.globe,
-              text: 'Discover',
-            ),
-            const GButton(
-              icon: LineIcons.bookmark,
-              text: 'Saved',
-            ),
-            GButton(
-              icon: LineIcons.user,
-              text: 'Profile',
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-              },
-            )
-          ]),
+        rippleColor: Colors.white, // tab button ripple color when pressed
+        haptic: true, // haptic feedback
+        tabBorderRadius: 50,
+        tabActiveBorder: Border.all(
+            color: const Color.fromRGBO(11, 134, 231, 1),
+            width: 1), // tab button border
+        tabBorder: null, // tab button border
+        tabShadow: null, // tab button shadow
+        curve: Curves.easeInCubic, // tab animation curves
+        duration: const Duration(milliseconds: 100), // tab animation duration
+        gap: 6, // the tab button gap between icon and text
+        color: Colors.grey[400], // unselected icon color
+        activeColor: Colors.white, // selected icon and text color
+        iconSize: 26, // tab button icon size
+        tabBackgroundColor: const Color.fromRGBO(
+            11, 134, 231, 1), // selected tab background color
+        padding: const EdgeInsets.symmetric(
+            horizontal: 10, vertical: 8), // navigation bar padding
+        tabs: [
+          GButton(
+            icon: LineIcons.home,
+            text: 'Home',
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+            },
+          ),
+          const GButton(
+            icon: LineIcons.globe,
+            text: 'Discover',
+          ),
+          const GButton(
+            icon: LineIcons.bookmark,
+            text: 'Saved',
+          ),
+          GButton(
+            icon: LineIcons.user,
+            text: 'Profile',
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
+            },
+          ),
+        ],
+      ),
     );
   }
 }

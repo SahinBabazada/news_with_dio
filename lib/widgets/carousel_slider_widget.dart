@@ -1,10 +1,10 @@
-import 'dart:convert';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../models/carousel_item.dart';
 import 'package:timeago/timeago.dart' as timeago;
+
+import '../services/news_api.dart';
 
 class CarouselSliderWidget extends StatefulWidget {
   const CarouselSliderWidget({super.key});
@@ -20,24 +20,14 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var newsApi =
-        DefaultAssetBundle.of(context).loadString('assets/api/news.json');
-
     return FutureBuilder(
-      future: newsApi,
+      future: getNews(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (snapshot.hasError) {
+        if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else if (!snapshot.hasData) {
           return const Text('Data not found');
         }
-
-        var news = jsonDecode(snapshot.data.toString());
-        List newsList = news['Breaking news'];
 
         return Column(
           children: [
@@ -54,11 +44,11 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                   });
                 },
               ),
-              items: sliderItems(newsList),
+              items: sliderItems(snapshot.data),
             ),
             AnimatedSmoothIndicator(
               activeIndex: _current,
-              count: newsList.length,
+              count: snapshot.data!.length,
               effect: const ExpandingDotsEffect(
                 expansionFactor: 3,
                 offset: 16.0,
@@ -77,9 +67,8 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
     );
   }
 
-  List<Container> sliderItems(List carouselItems) {
-    List<CarouselItem>  breakingNews = List.generate(carouselItems.length, (index) => CarouselItem.fromJson(carouselItems[index]));
-    return breakingNews
+  List<Container> sliderItems(List<CarouselItem>? carouselItems) {
+    return carouselItems!
         .map(
           (item) => Container(
             margin: const EdgeInsets.all(5.0),
@@ -100,7 +89,8 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
               child: Stack(
                 children: [
                   Image.network(
-                    item.imageSource,
+                    item.imageSource ??
+                        "https://t3.ftcdn.net/jpg/02/96/05/52/360_F_296055218_RXc721N9fSYIz3sEV7QALYquMVP31jdJ.jpg",
                     fit: BoxFit.cover,
                     height: 200,
                   ),
@@ -145,31 +135,39 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              item.userName,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
+                        SizedBox(
+                          width: 200,
+                          child: Row(
+                            children: [
+                              Flexible(
+                                child: RichText(
+                                  overflow: TextOverflow.ellipsis,
+                                  strutStyle: const StrutStyle(fontSize: 11.0),
+                                  text: TextSpan(
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      text: item.userName ?? 'Anonym'),
+                                ),
                               ),
-                            ),
-                            const Text(
-                              " • ",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
+                              const Text(
+                                " • ",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            Text(
-                              timeago.format(item.createdDate),
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 9,
+                              Text(
+                                timeago.format(item.createdDate),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 9,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 200,

@@ -14,17 +14,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text('Material App Bar'),
         ),
         body: const Center(
           child: Text('Hello World'),
         ),
         bottomNavigationBar: const BottomNavigationBarContainer(),
-      ),
-    );
+      );
   }
 }
